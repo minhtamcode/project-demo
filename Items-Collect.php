@@ -67,7 +67,7 @@ $sqlItemCollect = mysqli_query($conn, "SELECT i.itemID,i.ItemName FROM item as i
 
               <table id="mytable" class="table table-bordred table-striped">
                 <thead>
-                  <th width="50px"><input type="checkbox" id="checkall"/></th>
+                  <th width="50px"><input type="checkbox" id="checkall" /></th>
                   <th>Mã loại thu nhập</th>
                   <th>Tên loại thu nhập</th>
                 </thead>
@@ -97,7 +97,7 @@ $sqlItemCollect = mysqli_query($conn, "SELECT i.itemID,i.ItemName FROM item as i
           <div class="col-sm-8"></div>
           <div class="col-sm-4">
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalPoll"><i class="far fa-edit"></i>Thêm mới</button>
-            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modalConfirmDelete"><i class="fa fa-times"></i>  Xoá bỏ</button>
+            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modalConfirmDelete"><i class="fa fa-times"></i> Xoá bỏ</button>
           </div>
         </div>
       </div>
@@ -121,12 +121,12 @@ $sqlItemCollect = mysqli_query($conn, "SELECT i.itemID,i.ItemName FROM item as i
             <form method="POST" action="action-submit-Items.php">
               <div class="input-group mb-3">
                 <span class="input-group-text border-0" id="basic-addon1">Mục thu nhập</span>
-                <input type="text" class="form-control rounded" placeholder="Thêm mục thu nhập........" aria-describedby="basic-addon1" name="itemName" />
+                <input type="text" class="form-control rounded" placeholder="Thêm mục thu nhập........" aria-describedby="basic-addon1" name="itemName" id="itemName" />
               </div>
 
               <div class="input-group mb-3">
                 <span class="input-group-text border-0" id="basic-addon3">Loại danh mục</span>
-                <input type="text" class="form-control rounded" aria-describedby="basic-addon1" name="categoryItem" value="Thu nhập" readonly />
+                <input type="text" class="form-control rounded" aria-describedby="basic-addon1" name="categoryItem" value="Thu nhập" id="categoryItem" readonly />
               </div>
               <div class="modal-footer justify-content-center">
                 <button type="submit" class="btn btn-primary waves-effect waves-light">
@@ -142,35 +142,33 @@ $sqlItemCollect = mysqli_query($conn, "SELECT i.itemID,i.ItemName FROM item as i
     </div>
     <!-- Modal: modalPoll -->
 
+    <!--Modal: modalConfirmDelete-->
+    <div class="modal fade" id="modalConfirmDelete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-sm modal-notify modal-danger" role="document">
+        <!--Content-->
+        <div class="modal-content text-center">
+          <!--Header-->
+          <div class="modal-header d-flex justify-content-center">
+            <p class="heading"><strong>Bạn có chắc chắn muốn xoá?</strong></p>
+          </div>
 
-<!--Modal: modalConfirmDelete-->
-<div class="modal fade" id="modalConfirmDelete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-  aria-hidden="true">
-  <div class="modal-dialog modal-sm modal-notify modal-danger" role="document">
-    <!--Content-->
-    <div class="modal-content text-center">
-      <!--Header-->
-      <div class="modal-header d-flex justify-content-center">
-        <p class="heading"><strong>Bạn có chắc chắn muốn xoá?</strong></p>
-      </div>
+          <!--Body-->
+          <div class="modal-body">
 
-      <!--Body-->
-      <div class="modal-body">
+            <i class="fas fa-times fa-4x animated rotateIn" style="color: red;"></i>
 
-        <i class="fas fa-times fa-4x animated rotateIn" style="color: red;"></i>
+          </div>
 
-      </div>
-
-      <!--Footer-->
-      <div class="modal-footer flex-center">
-        <a href="" class="btn  btn-outline-danger">Đồng ý</a>
-        <a type="button" class="btn  btn-danger waves-effect" data-dismiss="modal">Huỷ bỏ</a>
+          <!--Footer-->
+          <div class="modal-footer flex-center">
+            <a href="" class="btn  btn-outline-danger">Đồng ý</a>
+            <a type="button" class="btn  btn-danger waves-effect" data-dismiss="modal">Huỷ bỏ</a>
+          </div>
+        </div>
+        <!--/.Content-->
       </div>
     </div>
-    <!--/.Content-->
-  </div>
-</div>
-<!--Modal: modalConfirmDelete-->
+    <!--Modal: modalConfirmDelete-->
 
 
     <?php
