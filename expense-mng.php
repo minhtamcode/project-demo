@@ -95,14 +95,21 @@ $sqlItem = mysqli_query($conn, "SELECT itemName from item where categoryItem lik
           <span class="input-group-text border-0">Ghi chú</span>
           <textarea class="form-control rounded" aria-label="With textarea" placeholder="Ghi chú chi tiêu........"></textarea>
         </div>
+
+        <div class="row">
+          <div class="col-sm-8"></div>
+          <div class="col-sm-4">
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalPoll"><i class="far fa-edit"></i>Lưu</button>
+            <a type="button" class="btn btn-danger" href="index.php"><i class="fa fa-times"></i> Huỷ</a>
+          </div>
+        </div>
+
       </div>
     </div>
-  </div>
-  </div>
-  <!-- /.content-wrapper -->
-  <?php
-  include_once("common/footer.php")
-  ?>
+    <!-- /.content-wrapper -->
+    <?php
+    include_once("common/footer.php")
+    ?>
   </div>
   <!-- ./wrapper -->
 

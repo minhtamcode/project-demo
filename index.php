@@ -64,8 +64,8 @@ $sqlExpense = mysqli_query($conn, "SELECT ca.categoryName,e.expenseName,i.ItemNa
         <div class="row">
           <div class="col-md-12">
             <h4 style="text-align: center; font-weight: bold">Thống kê Thu Nhập</h4>
+            
             <div class="table-responsive">
-
               <table id="mytable" class="table table-bordred table-striped">
                 <thead>
                   <th width="50px"><input type="checkbox" id="checkall" /></th>
@@ -74,6 +74,9 @@ $sqlExpense = mysqli_query($conn, "SELECT ca.categoryName,e.expenseName,i.ItemNa
                   <th>Mục tiêu dùng</th>
                   <th>Ghi chú</th>
                   <th>Số tiền(VNĐ)</th>
+                  <th>
+                    <a type="button" class="btn btn-primary" href="collect-mng.php"><i class="far fa-edit"></i>Thêm</a>
+                  </th>
                 </thead>
                 <tbody>
                   <?php
@@ -82,17 +85,15 @@ $sqlExpense = mysqli_query($conn, "SELECT ca.categoryName,e.expenseName,i.ItemNa
                     // do đó cần sử dụng vòng lặp While để lặp qua toàn bộ dữ liệu trên bảng posts
                     while ($row = mysqli_fetch_row($sqlCollect)) {
                       echo '<tr>
-              <td><input type="checkbox" class="checkthis" /></td>
+              <td><input type="checkbox" class="checkthis"></td>
               <td>' . $row[0] . '</td>
               <td>' . $row[1] . '</td>
               <td>' . $row[2] . '</td>
               <td>' . $row[3] . '</td>
               <td>' . $row[4] . '</td>
+              <td><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modalConfirmDelete"><i class="fa fa-times"></i> Xoá bỏ</button></td>
               </tr>';
                     }
-                    // Máy tính sẽ lưu kết quả từ việc truy vấn dữ liệu bảng
-                    // Do đó chúng ta nên giải phóng bộ nhớ sau khi hoàn tất đọc dữ liệu
-                    //mysqli_free_result($result);
                   }
                   ?>
                 </tbody>
@@ -114,6 +115,9 @@ $sqlExpense = mysqli_query($conn, "SELECT ca.categoryName,e.expenseName,i.ItemNa
                   <th>Mục tiêu dùng</th>
                   <th>Ghi chú</th>
                   <th>Số tiền(VNĐ)</th>
+                  <th>
+                    <a type="button" class="btn btn-primary" href="expense-mng.php"><i class="far fa-edit"></i>Thêm</a>
+                  </th>
                 </thead>
                 <tbody>
                   <?php
@@ -122,13 +126,14 @@ $sqlExpense = mysqli_query($conn, "SELECT ca.categoryName,e.expenseName,i.ItemNa
                     // do đó cần sử dụng vòng lặp While để lặp qua toàn bộ dữ liệu trên bảng posts
                     while ($row = mysqli_fetch_row($sqlExpense)) {
                       echo
-              '<tr>
+                      '<tr>
               <td><input type="checkbox" class="checkthis" /></td>
               <td>' . $row[0] . '</td>
               <td>' . $row[1] . '</td>
               <td>' . $row[2] . '</td>
               <td>' . $row[3] . '</td>
               <td>' . $row[4] . '</td>
+              <td><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modalConfirmDelete"><i class="fa fa-times"></i> Xoá bỏ</button></td>
               </tr>';
                     }
                     // Máy tính sẽ lưu kết quả từ việc truy vấn dữ liệu bảng

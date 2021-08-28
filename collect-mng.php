@@ -99,11 +99,15 @@ $sqlItem = mysqli_query($conn, "SELECT itemID,itemName from item where categoryI
           <textarea class="form-control rounded" aria-label="With textarea" placeholder="Ghi chú thu nhập........" name="commentCollect"></textarea>
         </div>
 
-        <div class="input-group">
-          <button class="btn btn-primary" type="submit">Button</button>
+        <div class="row">
+          <div class="col-sm-8"></div>
+          <div class="col-sm-4">
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalPoll"><i class="far fa-edit"></i>Lưu</button>
+            <a type="button" class="btn btn-danger" href="index.php"><i class="fa fa-times"></i> Huỷ</a>
+          </div>
         </div>
         </form>
-        
+    
       </div>
     </div>
   </div>

@@ -59,7 +59,6 @@ $sqlItemCollect = mysqli_query($conn, "SELECT i.itemID,i.ItemName FROM item as i
       <!-- Content Header (Page header) -->
 
       <div class="container">
-
         <div class="row">
           <div class="col-md-12">
             <h4 style="text-align: center; font-weight: bold;">Danh mục thu nhập</h4>
@@ -67,7 +66,7 @@ $sqlItemCollect = mysqli_query($conn, "SELECT i.itemID,i.ItemName FROM item as i
 
               <table id="mytable" class="table table-bordred table-striped">
                 <thead>
-                  <th width="50px"><input type="checkbox" id="checkall" /></th>
+                  <th width="50px"><input type="checkbox" id="checkall" name="check" /></th>
                   <th>Mã loại thu nhập</th>
                   <th>Tên loại thu nhập</th>
                 </thead>
@@ -78,14 +77,11 @@ $sqlItemCollect = mysqli_query($conn, "SELECT i.itemID,i.ItemName FROM item as i
                     // do đó cần sử dụng vòng lặp While để lặp qua toàn bộ dữ liệu trên bảng posts
                     while ($row = mysqli_fetch_row($sqlItemCollect)) {
                       echo '<tr>
-              <td><input type="checkbox" class="checkthis" /></td>
-              <td>' . $row[0] . '</td>
-              <td>' . $row[1] . '</td>
+              <td><input type="checkbox" class="checkthis" name="checkthis"/></td>
+              <td name="item-collect-id">' . $row[0] . '</td>
+              <td name="item-collect-name">' . $row[1] . '</td>
               </tr>';
                     }
-                    // Máy tính sẽ lưu kết quả từ việc truy vấn dữ liệu bảng
-                    // Do đó chúng ta nên giải phóng bộ nhớ sau khi hoàn tất đọc dữ liệu
-                    //mysqli_free_result($result);
                   }
                   ?>
                 </tbody>
@@ -101,6 +97,7 @@ $sqlItemCollect = mysqli_query($conn, "SELECT i.itemID,i.ItemName FROM item as i
           </div>
         </div>
       </div>
+
       <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->

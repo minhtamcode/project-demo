@@ -13,3 +13,8 @@ if (mysqli_query($conn, $sqlInsert)) {
     echo "ERROR: Could not able to execute $sqlInsert. " . mysqli_error($conn);
 }
 ?>
+
+
+
+<!-- delete Items -->
+
