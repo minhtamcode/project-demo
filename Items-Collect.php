@@ -38,6 +38,12 @@ $sqlItemCollect = mysqli_query($conn, "SELECT i.itemID,i.ItemName FROM item as i
                 <th width="50px"><input type="checkbox" id="checkall" name="check" /></th>
                 <th>Mã loại thu nhập</th>
                 <th>Tên loại thu nhập</th>
+                <th width="110px">
+                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalPoll"><i class="far fa-edit"></i>Thêm</button>
+                </th>
+                <th width="100px">
+                  <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modalConfirmDelete"><i class="fa fa-times"></i> Xoá</button>
+                </th>
               </thead>
               <tbody>
                 <?php
@@ -49,6 +55,8 @@ $sqlItemCollect = mysqli_query($conn, "SELECT i.itemID,i.ItemName FROM item as i
               <td><input type="checkbox" class="checkthis" name="checkthis"/></td>
               <td name="item-collect-id">' . $row[0] . '</td>
               <td name="item-collect-name">' . $row[1] . '</td>
+              <td></td>
+              <td></td>
               </tr>';
                   }
                 }
@@ -58,15 +66,7 @@ $sqlItemCollect = mysqli_query($conn, "SELECT i.itemID,i.ItemName FROM item as i
           </div>
         </div>
       </div>
-      <div class="row">
-        <div class="col-sm-8"></div>
-        <div class="col-sm-4">
-          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalPoll"><i class="far fa-edit"></i>Thêm mới</button>
-          <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modalConfirmDelete"><i class="fa fa-times"></i> Xoá bỏ</button>
-        </div>
-      </div>
     </div>
-
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
@@ -89,7 +89,6 @@ $sqlItemCollect = mysqli_query($conn, "SELECT i.itemID,i.ItemName FROM item as i
               <span class="input-group-text border-0" id="basic-addon1">Mục thu nhập</span>
               <input type="text" class="form-control rounded" placeholder="Thêm mục thu nhập........" aria-describedby="basic-addon1" name="itemName" id="itemName" />
             </div>
-
             <div class="input-group mb-3">
               <span class="input-group-text border-0" id="basic-addon3">Loại danh mục</span>
               <input type="text" class="form-control rounded" aria-describedby="basic-addon1" name="categoryItem" value="Thu nhập" id="categoryItem" readonly />
@@ -107,7 +106,6 @@ $sqlItemCollect = mysqli_query($conn, "SELECT i.itemID,i.ItemName FROM item as i
     </div>
   </div>
   <!-- Modal: modalPoll -->
-
   <!--Modal: modalConfirmDelete-->
   <div class="modal fade" id="modalConfirmDelete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-sm modal-notify modal-danger" role="document">
@@ -117,14 +115,10 @@ $sqlItemCollect = mysqli_query($conn, "SELECT i.itemID,i.ItemName FROM item as i
         <div class="modal-header d-flex justify-content-center">
           <p class="heading"><strong>Bạn có chắc chắn muốn xoá?</strong></p>
         </div>
-
         <!--Body-->
         <div class="modal-body">
-
           <i class="fas fa-times fa-4x animated rotateIn" style="color: red;"></i>
-
         </div>
-
         <!--Footer-->
         <div class="modal-footer flex-center">
           <a href="" class="btn  btn-outline-danger">Đồng ý</a>
@@ -135,12 +129,9 @@ $sqlItemCollect = mysqli_query($conn, "SELECT i.itemID,i.ItemName FROM item as i
     </div>
   </div>
   <!--Modal: modalConfirmDelete-->
-
-
   <?php
   include_once("common/footer.php");
   ?>
 </div>
 </div>
-
 <!-- ./wrapper -->

@@ -40,7 +40,12 @@ $sqlItemExpense = mysqli_query($conn, "SELECT i.itemID,i.ItemName FROM item as i
                 <th width="50px"><input type="checkbox" id="checkall" /></th>
                 <th>Mã loại chi tiêu</th>
                 <th>Tên loại chi tiêu</th>
-
+                <th width="110px">
+                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalPoll"><i class="far fa-edit"></i>Thêm</button>
+                </th>
+                <th width="100px">
+                  <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modalConfirmDelete"><i class="fa fa-times"></i> Xoá</button>
+                </th>
               </thead>
               <tbody>
                 <?php
@@ -52,6 +57,8 @@ $sqlItemExpense = mysqli_query($conn, "SELECT i.itemID,i.ItemName FROM item as i
               <td><input type="checkbox" class="checkthis" /></td>
               <td>' . $row[0] . '</td>
               <td>' . $row[1] . '</td>
+              <td></td>
+              <td></td>
               </tr>';
                   }
                   // Máy tính sẽ lưu kết quả từ việc truy vấn dữ liệu bảng
@@ -62,13 +69,6 @@ $sqlItemExpense = mysqli_query($conn, "SELECT i.itemID,i.ItemName FROM item as i
               </tbody>
             </table>
           </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-sm-8"></div>
-        <div class="col-sm-4">
-          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalPoll"><i class="far fa-edit"></i>Thêm mới</button>
-          <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modalConfirmDelete"><i class="fa fa-times"></i> Xoá bỏ</button>
         </div>
       </div>
     </div>
