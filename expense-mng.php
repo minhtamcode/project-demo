@@ -22,7 +22,6 @@ $sqlItem = mysqli_query($conn, "SELECT itemName from item where categoryItem lik
     ?>
     <!-- /.sidebar -->
   </aside>
-
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
