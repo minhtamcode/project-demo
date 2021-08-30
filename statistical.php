@@ -5,7 +5,7 @@ include_once  "dbconnect.php";
 <div class="wrapper">
   <!-- Preloader -->
   <div class="preloader flex-column justify-content-center align-items-center">
-    <img class="animation__shake" src="dist/img/self-collect.png" height="200" width="200">
+    <img class="animation__shake" src="dist/img/analytics.png" height="200" width="200">
   </div>
   <!-- Navbar -->
   <?php
