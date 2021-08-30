@@ -42,8 +42,8 @@ include_once "dbconnect.php";
                 <th width="50px"><input type="checkbox" id="checkall" /></th>
                 <th width="150px">Loại</th>
                 <th width="200px">Loại thu nhập</th>
-                <th>Mục tiêu dùng</th>
-                <th>Ghi chú</th>
+                <th width="200px">Mục tiêu dùng</th>
+                <th width="200px">Ghi chú</th>
                 <th>Số tiền(VNĐ)</th>
                 <th>
                   <a type="button" class="btn btn-primary" href="collect-mng.php"><i class="far fa-edit"></i>Thêm</a>
@@ -85,8 +85,8 @@ include_once "dbconnect.php";
                 <th width="50px"><input type="checkbox" id="checkall" /></th>
                 <th width="150px">Loại</th>
                 <th width="200px">Loại chi tiêu</th>
-                <th>Mục tiêu dùng</th>
-                <th>Ghi chú</th>
+                <th width="200px">Mục tiêu dùng</th>
+                <th width="200px">Ghi chú</th>
                 <th>Số tiền(VNĐ)</th>
                 <th>
                   <a type="button" class="btn btn-primary" href="expense-mng.php"><i class="far fa-edit"></i>Thêm</a>

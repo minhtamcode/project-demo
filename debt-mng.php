@@ -25,7 +25,8 @@ $sqlCollect = mysqli_query($conn, "SELECT ca.categoryName,c.collectName,i.ItemNa
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h4 style="text-align: center; font-weight: bold">Danh mục chi tiêu</h4>
+                    <h4 style="text-align: center; font-weight: bold">Danh sách ghi nợ</h4>
+                    <p style="color: red;">(*) Bạn còn <b>1000000000</b> số tiền nợ cần phải trả.</p>
                     <div class="table-responsive">
                         <table id="mytable" class="table table-bordred table-striped">
                             <thead>
