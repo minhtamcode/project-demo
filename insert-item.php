@@ -15,6 +15,3 @@ if (mysqli_query($conn, $sqlInsert)) {
 ?>
 
 
-
-<!-- delete Items -->
-

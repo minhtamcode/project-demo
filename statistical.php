@@ -1,6 +1,6 @@
 <?php
 include_once  "dbconnect.php";
-$sqlItem = mysqli_query($conn, "SELECT itemName from item where categoryItem like 'Thu nhập';");
+
 ?>
 <div class="wrapper">
   <!-- Preloader -->

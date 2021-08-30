@@ -36,17 +36,11 @@ $sqlItem = mysqli_query($conn, "SELECT itemID,itemName from item where categoryI
             <option value="" aria-readonly="true">Chọn...</option>
             <?php
             if ($sqlItem->num_rows > 0) {
-              // Hàm `mysql_fetch_row()` sẽ chỉ fetch dữ liệu một record mỗi lần được gọi
-              // do đó cần sử dụng vòng lặp While để lặp qua toàn bộ dữ liệu trên bảng posts
-              //$index = 0;
-              //$itemCollect = array();
               while ($row = $sqlItem->fetch_assoc()) {
                 echo '
                 <option value="' . $row["itemID"] . '">' . $row["itemName"] . '</option>';
               }
-              //$index++;
             }
-            //echo '<option name="itemCollect">'.$itemCollect.'</option>';
             ?>
           </select>
         </div>
