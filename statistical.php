@@ -58,7 +58,9 @@ include_once  "dbconnect.php";
               <td>' . $row['collectName'] . '</td>
               <td>' . $row['ItemName'] . '</td>
               <td>' . $row['collectPrice'] . '</td>
-              <td style="padding: 5px"><button type="button" class="btn btn-danger"><i class="fa fa-times"></i> Xoá</button></td>
+              <td style="padding: 5px">
+                <button type="button" class="btn btn-danger" onclick="deleteCollect(' . $row['collectID'] . ')"><i class="fa fa-times"></i> Xoá</button>
+              </td>
               </tr>';
                     }
                   }
@@ -88,6 +90,22 @@ include_once  "dbconnect.php";
             </li>
           </ul>
         </nav>
+
+        <script type="text/javascript">
+          function deleteCollect(collectID) {
+            option = confirm('Bạn có muốn xoá thu nhập này không')
+            if (!option) {
+              return;
+            }
+            console.log(collectID)
+            $.post('delete-collect.php', {
+              'collectID': collectID
+            }, function(data) {
+              alert(data)
+              location.reload()
+            })
+          }
+        </script>
 
         <div class="row">
           <div class="col-md-12">
@@ -118,7 +136,9 @@ include_once  "dbconnect.php";
               <td>' . $row['expenseName'] . '</td>
               <td>' . $row['ItemName'] . '</td>
               <td>' . $row['expensePrice'] . '</td>
-              <td style="padding: 5px"><button type="button" class="btn btn-danger"><i class="fa fa-times"></i> Xoá</button></td>
+              <td>
+                <button type="button" class="btn btn-danger" onclick="deleteExpense(' . $row['expenseID'] . ')"><i class="fa fa-times"></i> Xoá</button>
+              </td>
               </tr>';
                     }
                   }
@@ -148,6 +168,22 @@ include_once  "dbconnect.php";
             </li>
           </ul>
         </nav>
+
+        <script type="text/javascript">
+          function deleteExpense(expenseID) {
+            option = confirm('Bạn có muốn xoá thu nhập này không')
+            if (!option) {
+              return;
+            }
+            console.log(expenseID)
+            $.post('delete-expense.php', {
+              'expenseID': expenseID
+            }, function(data) {
+              alert(data)
+              location.reload()
+            })
+          }
+        </script>
 
       </div><!-- /.container-fluid -->
     </div>

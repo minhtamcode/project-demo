@@ -1,8 +1,8 @@
 <?php
 include_once "dbconnect.php";
-$collectID = mysqli_real_escape_string($conn, $_POST['collectID']);
+$expenseID = mysqli_real_escape_string($conn, $_POST['expenseID']);
 // Attempt insert query execution
-$sqlDelete = "DELETE FROM collect WHERE collectID=$collectID";
+$sqlDelete = "DELETE FROM expense WHERE expenseID=$expenseID";
 if (mysqli_query($conn, $sqlDelete)) {
     echo 'Xoá thành công';
 } else {

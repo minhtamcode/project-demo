@@ -25,89 +25,139 @@ include_once "dbconnect.php";
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
-
-    <div class="container">
-
-      <div class="row">
-        <div class="col-md-12">
-          <h4 style="text-align: center; font-weight: bold">Thống kê Thu Nhập</h4>
-
-          <?php
-          $sqlCollect = mysqli_query($conn, "SELECT c.collectID,ca.categoryName,c.collectName,i.ItemName,c.comment,c.collectPrice FROM collect as c INNER JOIN item as i ON c.itemID = i.ItemID INNER JOIN categories as ca ON ca.categoryID = c.categoryID;");
-          ?>
-
-          <div class="table-responsive">
-            <table id="mytable" class="table table-bordered table-striped text-center">
-              <thead>
-                <th width="150px">Loại</th>
-                <th width="200px">Loại thu nhập</th>
-                <th width="200px">Mục tiêu dùng</th>
-                <th>Số tiền(VNĐ)</th>
-                <th>
-                  <a type="button" class="btn btn-primary" href="collect-mng.php"><i class="far fa-edit"></i>Thêm</a>
-                </th>
-              </thead>
-              <tbody>
-                <?php
-                if ($sqlCollect->num_rows > 0) {
-                  while ($row = $sqlCollect->fetch_assoc()) {
-                    echo '<tr>
-              <td style="display:none">' . $row['collectID'] . '</td>
-              <td>' . $row['categoryName'] . '</td>
-              <td>' . $row['collectName'] . '</td>
-              <td>' . $row['ItemName'] . '</td>
-              <td>' . $row['collectPrice'] . '</td>
-              <td><button type="button" class="btn btn-danger"><i class="fa fa-times"></i> Xoá</button></td>
-              </tr>';
-                  }
-                }
-                ?>
-              </tbody>
-            </table>
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Inline Charts</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active">Inline Charts</li>
+            </ol>
           </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="col-md-12">
-          <h4 style="text-align: center; font-weight: bold">Thống kê chi tiêu</h4>
+      </div><!-- /.container-fluid -->
+    </section>
 
-          <?php
-          $sqlExpense = mysqli_query($conn, "SELECT e.expenseID,ca.categoryName,e.expenseName,i.ItemName,e.comment,e.expensePrice FROM expense as e INNER JOIN item as i ON e.itemID = i.ItemID INNER JOIN categories as ca ON ca.categoryID = e.categoryID;");
-          ?>
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <!-- row -->
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">
+                  <i class="far fa-chart-bar"></i>
+                  jQuery Knob Different Sizes
+                </h3>
 
-          <div class="table-responsive">
-            <table id="mytable" class="table table-bordered table-striped text-center">
-              <thead>
-                <th width="150px">Loại</th>
-                <th width="200px">Loại chi tiêu</th>
-                <th width="200px">Mục tiêu dùng</th>
-                <th>Số tiền(VNĐ)</th>
-                <th>
-                  <a type="button" class="btn btn-primary" href="expense-mng.php"><i class="far fa-edit"></i>Thêm</a>
-                </th>
-              </thead>
-              <tbody>
-                <?php
-                if ($sqlExpense->num_rows > 0) {
-                  while ($row = $sqlExpense->fetch_assoc()) {
-                    echo '<tr>
-              <td style="display:none">' . $row['expenseID'] . '</td>
-              <td>' . $row['categoryName'] . '</td>
-              <td>' . $row['expenseName'] . '</td>
-              <td>' . $row['ItemName'] . '</td>
-              <td>' . $row['expensePrice'] . '</td>
-              <td><button type="button" class="btn btn-danger"><i class="fa fa-times"></i> Xoá</button></td>
-              </tr>';
-                  }
-                }
-                ?>
-              </tbody>
-            </table>
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                    <i class="fas fa-minus"></i>
+                  </button>
+                  <button type="button" class="btn btn-tool" data-card-widget="remove">
+                    <i class="fas fa-times"></i>
+                  </button>
+                </div>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-6 col-md-3 text-center">
+                    <input type="text" class="knob" value="40" data-width="90" data-height="90" data-fgColor="#3c8dbc" data-readonly="true">
+
+                    <div class="knob-label"></div>
+                  </div>
+                  <!-- ./col -->
+                  <div class="col-6 col-md-3 text-center">
+                    <input type="text" class="knob" value="30" data-width="120" data-height="120" data-fgColor="#f56954">
+
+                    <div class="knob-label">data-width="120"</div>
+                  </div>
+                  <!-- ./col -->
+                  <div class="col-6 col-md-3 text-center">
+                    <input type="text" class="knob" value="30" data-thickness="0.1" data-width="90" data-height="90" data-fgColor="#00a65a">
+
+                    <div class="knob-label">data-thickness="0.1"</div>
+                  </div>
+                  <!-- ./col -->
+                  <div class="col-6 col-md-3 text-center">
+                    <input type="text" class="knob" data-thickness="0.2" data-angleArc="250" data-angleOffset="-125" value="30" data-width="120" data-height="120" data-fgColor="#00c0ef">
+
+                    <div class="knob-label">data-angleArc="250"</div>
+                  </div>
+                  <!-- ./col -->
+                </div>
+                <!-- /.row -->
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
           </div>
+          <!-- /.col -->
         </div>
-      </div>
-    </div>
+        <!-- /.row -->
 
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">
+                  <i class="far fa-chart-bar"></i>
+                  jQuery Knob Different Sizes
+                </h3>
+
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                    <i class="fas fa-minus"></i>
+                  </button>
+                  <button type="button" class="btn btn-tool" data-card-widget="remove">
+                    <i class="fas fa-times"></i>
+                  </button>
+                </div>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-6 col-md-3 text-center">
+                    <input type="text" class="knob" value="30" data-width="90" data-height="90" data-fgColor="#3c8dbc" data-readonly="true">
+
+                    <div class="knob-label">data-width="90"</div>
+                  </div>
+                  <!-- ./col -->
+                  <div class="col-6 col-md-3 text-center">
+                    <input type="text" class="knob" value="30" data-width="120" data-height="120" data-fgColor="#f56954">
+
+                    <div class="knob-label">data-width="120"</div>
+                  </div>
+                  <!-- ./col -->
+                  <div class="col-6 col-md-3 text-center">
+                    <input type="text" class="knob" value="30" data-thickness="0.1" data-width="90" data-height="90" data-fgColor="#00a65a">
+
+                    <div class="knob-label">data-thickness="0.1"</div>
+                  </div>
+                  <!-- ./col -->
+                  <div class="col-6 col-md-3 text-center">
+                    <input type="text" class="knob" data-thickness="0.2" data-angleArc="250" data-angleOffset="-125" value="30" data-width="120" data-height="120" data-fgColor="#00c0ef">
+
+                    <div class="knob-label">data-angleArc="250"</div>
+                  </div>
+                  <!-- ./col -->
+                </div>
+                <!-- /.row -->
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+        </div>
+
+      </div><!-- /.container-fluid -->
+    </section>
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
@@ -116,3 +166,96 @@ include_once "dbconnect.php";
   ?>
 </div>
 <!-- ./wrapper -->
+
+
+<script>
+  $(function() {
+    /* jQueryKnob */
+
+    $('.knob').knob({
+      /*change : function (value) {
+       //console.log("change : " + value);
+       },
+       release : function (value) {
+       console.log("release : " + value);
+       },
+       cancel : function () {
+       console.log("cancel : " + this.value);
+       },*/
+      draw: function() {
+
+        // "tron" case
+        if (this.$.data('skin') == 'tron') {
+
+          var a = this.angle(this.cv) // Angle
+            ,
+            sa = this.startAngle // Previous start angle
+            ,
+            sat = this.startAngle // Start angle
+            ,
+            ea // Previous end angle
+            ,
+            eat = sat + a // End angle
+            ,
+            r = true
+
+          this.g.lineWidth = this.lineWidth
+
+          this.o.cursor &&
+            (sat = eat - 0.3) &&
+            (eat = eat + 0.3)
+
+          if (this.o.displayPrevious) {
+            ea = this.startAngle + this.angle(this.value)
+            this.o.cursor &&
+              (sa = ea - 0.3) &&
+              (ea = ea + 0.3)
+            this.g.beginPath()
+            this.g.strokeStyle = this.previousColor
+            this.g.arc(this.xy, this.xy, this.radius - this.lineWidth, sa, ea, false)
+            this.g.stroke()
+          }
+
+          this.g.beginPath()
+          this.g.strokeStyle = r ? this.o.fgColor : this.fgColor
+          this.g.arc(this.xy, this.xy, this.radius - this.lineWidth, sat, eat, false)
+          this.g.stroke()
+
+          this.g.lineWidth = 2
+          this.g.beginPath()
+          this.g.strokeStyle = this.o.fgColor
+          this.g.arc(this.xy, this.xy, this.radius - this.lineWidth + 1 + this.lineWidth * 2 / 3, 0, 2 * Math.PI, false)
+          this.g.stroke()
+
+          return false
+        }
+      }
+    })
+    /* END JQUERY KNOB */
+
+    //INITIALIZE SPARKLINE CHARTS
+    var sparkline1 = new Sparkline($('#sparkline-1')[0], {
+      width: 240,
+      height: 70,
+      lineColor: '#92c1dc',
+      endColor: '#92c1dc'
+    })
+    var sparkline2 = new Sparkline($('#sparkline-2')[0], {
+      width: 240,
+      height: 70,
+      lineColor: '#f56954',
+      endColor: '#f56954'
+    })
+    var sparkline3 = new Sparkline($('#sparkline-3')[0], {
+      width: 240,
+      height: 70,
+      lineColor: '#3af221',
+      endColor: '#3af221'
+    })
+
+    sparkline1.draw([1000, 1200, 920, 927, 931, 1027, 819, 930, 1021])
+    sparkline2.draw([515, 519, 520, 522, 652, 810, 370, 627, 319, 630, 921])
+    sparkline3.draw([15, 19, 20, 22, 33, 27, 31, 27, 19, 30, 21])
+
+  })
+</script>
