@@ -1,6 +1,7 @@
 <?php
 include_once("dbconnect.php");
 $sqlItem = mysqli_query($conn, "SELECT itemID,itemName from item where categoryItem like 'Thu nhập';");
+// $sqlCategoty = mysqli_query($conn, "SELECT categoryID from categories;");
 ?>
 <div class="wrapper">
 
@@ -25,10 +26,10 @@ $sqlItem = mysqli_query($conn, "SELECT itemID,itemName from item where categoryI
     <!-- Content Header (Page header) -->
     <div class="container">
       <h3 style="text-align: center; padding: 20px; font-weight:bold;">THÊM MỚI THU NHẬP</h3>
-      <form method="POST" action="action-submit.php">
+      <form method="POST" action="insert-collect.php">
         <div class="input-group mb-3">
           <span class="input-group-text border-0" id="basic-addon1">Loại thu nhập</span>
-          <input type="text" class="form-control rounded" placeholder="Thêm loại thu nhập........" aria-describedby="basic-addon1" name="categoryCollect" />
+          <input type="text" class="form-control rounded" placeholder="Thêm loại thu nhập........" aria-describedby="basic-addon1" name="nameCollect" />
         </div>
         <div class="input-group mb-3">
           <span class="input-group-text border-0" id="basic-addon3">Mục thu nhập</span>
@@ -46,10 +47,9 @@ $sqlItem = mysqli_query($conn, "SELECT itemID,itemName from item where categoryI
         </div>
         <div class="input-group mb-3">
           <span class="input-group-text border-0">Số tiền</span>
-          <input type="text" class="form-control rounded" aria-label="Amount (to the nearest dollar)" placeholder="Nhập số tiền thu nhập........" name="priceCollect" />
+          <input type="text" class="form-control rounded" placeholder="Nhập số tiền thu nhập........" name="priceCollect" />
           <span class="input-group-text border-0">VNĐ</span>
         </div>
-
         <div class="input-group">
           <span class="input-group-text border-0">Ghi chú</span>
           <textarea class="form-control rounded" aria-label="With textarea" placeholder="Ghi chú thu nhập........" name="commentCollect"></textarea>
@@ -57,7 +57,7 @@ $sqlItem = mysqli_query($conn, "SELECT itemID,itemName from item where categoryI
         <div class="row">
           <div class="col-sm-8"></div>
           <div class="col-sm-4">
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalPoll"><i class="far fa-edit"></i>Lưu</button>
+            <button type="submit" class="btn btn-primary"><i class="far fa-edit"></i>Lưu</button>
             <a type="button" class="btn btn-danger" href="index.php"><i class="fa fa-times"></i> Huỷ</a>
           </div>
         </div>

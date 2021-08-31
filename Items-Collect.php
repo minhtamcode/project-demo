@@ -35,7 +35,7 @@ $sqlItemCollect = mysqli_query($conn, "SELECT i.itemID,i.ItemName FROM item as i
               ?>
               <table id="mytable" class="table table-bordred table-striped" >
                 <thead>
-                  <th width="50px"><input type="checkbox" id="checkall" name="check" /></th>
+                  <th style="display:none;" width="50px"><input type="checkbox" id="checkall" name="check" /></th>
                   <th>Mã loại thu nhập</th>
                   <th>Tên loại thu nhập</th>
                   <th width="110px" style="padding: 5px">
@@ -47,8 +47,8 @@ $sqlItemCollect = mysqli_query($conn, "SELECT i.itemID,i.ItemName FROM item as i
                   if ($sqlItemCollect->num_rows > 0) {
                     while ($row = $sqlItemCollect->fetch_assoc()) {
                       echo '<tr">
-              <td><input type="checkbox" class="checkthis" name="checkthis" value="' . $row['itemID'] . '" ></td>
-              <td name="item-collect-id" value="' . $row['itemID'] . '">' . $row['itemID'] . '</td>
+              <td style="display:none;"><input type="checkbox" class="checkthis" name="checkthis" value="' . $row['itemID'] . '" ></td>
+              <td name="item-collect-id" style="padding-left: 50px" value="' . $row['itemID'] . '">' . $row['itemID'] . '</td>
               <td name="item-collect-name" >' . $row['ItemName'] . '</td>
               <td style="padding: 5px">
                 <button type="button" class="btn btn-danger" onclick="deleteItem(' . $row['itemID'] . ')"><i class="fa fa-times"></i> Xoá</button>
@@ -133,7 +133,7 @@ $sqlItemCollect = mysqli_query($conn, "SELECT i.itemID,i.ItemName FROM item as i
                 <i class="fa fa-plus"></i>
                 Thêm mới
               </button>
-              <a type="button" class="btn btn-outline-primary waves-effect" data-dismiss="modal">Cancel</a>
+              <a type="button" class="btn btn-outline-danger waves-effect" data-dismiss="modal">Cancel</a>
             </div>
           </form>
         </div>

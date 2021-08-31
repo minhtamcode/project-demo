@@ -37,13 +37,11 @@ include_once "dbconnect.php";
           ?>
 
           <div class="table-responsive">
-            <table id="mytable" class="table table-bordred table-striped">
+            <table id="mytable" class="table table-bordered table-striped text-center">
               <thead>
-                <th width="50px"><input type="checkbox" id="checkall" /></th>
                 <th width="150px">Loại</th>
                 <th width="200px">Loại thu nhập</th>
                 <th width="200px">Mục tiêu dùng</th>
-                <th width="200px">Ghi chú</th>
                 <th>Số tiền(VNĐ)</th>
                 <th>
                   <a type="button" class="btn btn-primary" href="collect-mng.php"><i class="far fa-edit"></i>Thêm</a>
@@ -54,14 +52,12 @@ include_once "dbconnect.php";
                 if ($sqlCollect->num_rows > 0) {
                   while ($row = $sqlCollect->fetch_assoc()) {
                     echo '<tr>
-              <td><input type="checkbox" class="checkthis" value = ' . $row['collectID'] . ' name = "ID"></td>
               <td style="display:none">' . $row['collectID'] . '</td>
               <td>' . $row['categoryName'] . '</td>
               <td>' . $row['collectName'] . '</td>
               <td>' . $row['ItemName'] . '</td>
-              <td>' . $row['comment'] . '</td>
               <td>' . $row['collectPrice'] . '</td>
-              <td><button type="button" class="btn btn-danger"><i class="fa fa-times"></i> Xoá bỏ</button></td>
+              <td><button type="button" class="btn btn-danger"><i class="fa fa-times"></i> Xoá</button></td>
               </tr>';
                   }
                 }
@@ -80,13 +76,11 @@ include_once "dbconnect.php";
           ?>
 
           <div class="table-responsive">
-            <table id="mytable" class="table table-bordred table-striped">
+            <table id="mytable" class="table table-bordered table-striped text-center">
               <thead>
-                <th width="50px"><input type="checkbox" id="checkall" /></th>
                 <th width="150px">Loại</th>
                 <th width="200px">Loại chi tiêu</th>
                 <th width="200px">Mục tiêu dùng</th>
-                <th width="200px">Ghi chú</th>
                 <th>Số tiền(VNĐ)</th>
                 <th>
                   <a type="button" class="btn btn-primary" href="expense-mng.php"><i class="far fa-edit"></i>Thêm</a>
@@ -97,14 +91,12 @@ include_once "dbconnect.php";
                 if ($sqlExpense->num_rows > 0) {
                   while ($row = $sqlExpense->fetch_assoc()) {
                     echo '<tr>
-              <td><input type="checkbox" class="checkthis" value = ' . $row['expenseID'] . ' ></td>
               <td style="display:none">' . $row['expenseID'] . '</td>
               <td>' . $row['categoryName'] . '</td>
               <td>' . $row['expenseName'] . '</td>
               <td>' . $row['ItemName'] . '</td>
-              <td>' . $row['comment'] . '</td>
               <td>' . $row['expensePrice'] . '</td>
-              <td><button type="button" class="btn btn-danger"><i class="fa fa-times"></i> Xoá bỏ</button></td>
+              <td><button type="button" class="btn btn-danger"><i class="fa fa-times"></i> Xoá</button></td>
               </tr>';
                   }
                 }

@@ -30,11 +30,11 @@ if (!empty($_POST)) {
 
   $sqlInsert = "INSERT INTO collect(collectName, comment, collectPrice, itemID, categoryID) VALUES ('$nameCollect','$commentCollect','$priceCollect','$itemCollect','$categoryID')";
   if (mysqli_query($conn, $sqlInsert)) {
-      echo 'Lưu thành công!';
+    header('Location: index.php');
   } else {
-      echo "ERROR: Could not able to execute $sqlInsert. " . mysqli_error($conn);
+    echo "ERROR: Could not able to execute $sqlInsert. " . mysqli_error($conn);
   }
 
-  header('Location: index.php');
+  
   die();
 }

@@ -54,7 +54,7 @@
                 <p>Quản lý chi tiêu</p>
               </a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item" style="display: none;">
               <a href="debt-mng.php" class="nav-link">
                 <i class="far fa-circle nav-icon"></i>
                 <p>Quản lý nợ</p>

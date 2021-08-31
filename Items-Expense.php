@@ -41,7 +41,7 @@ $sqlItemExpense = mysqli_query($conn, "SELECT i.itemID,i.ItemName FROM item as i
 
             <table id="mytable" class="table table-bordred table-striped">
               <thead>
-                <th width="50px"><input type="checkbox" id="checkall" /></th>
+                <th width="50px" style="display:none;"><input type="checkbox" id="checkall" /></th>
                 <th>Mã loại chi tiêu</th>
                 <th>Tên loại chi tiêu</th>
                 <th width="110px">
@@ -53,8 +53,8 @@ $sqlItemExpense = mysqli_query($conn, "SELECT i.itemID,i.ItemName FROM item as i
                 if ($sqlItemExpense->num_rows > 0) {
                   while ($row = $sqlItemExpense->fetch_assoc()) {
                     echo '<tr>
-              <td><input type="checkbox" class="checkthis" name="checkthis" value="' . $row['itemID'] . '"></td>
-              <td name="item-collect-id" value="' . $row['itemID'] . '">' . $row['itemID'] . '</td>
+              <td style="display:none;"><input type="checkbox" class="checkthis" name="checkthis" value="' . $row['itemID'] . '"></td>
+              <td name="item-collect-id" style="padding-left: 50px" value="' . $row['itemID'] . '">' . $row['itemID'] . '</td>
               <td name="item-collect-name">' . $row['ItemName'] . '</td>
               <td>
                 <button type="button" class="btn btn-danger" onclick="deleteItem(' . $row['itemID'] . ')"><i class="fa fa-times"></i> Xoá</button>
@@ -123,7 +123,7 @@ $sqlItemExpense = mysqli_query($conn, "SELECT i.itemID,i.ItemName FROM item as i
         </div>
         <!--Body-->
         <div class="modal-body">
-          <form method="POST" action="insert-items.php">
+          <form method="POST" action="insert-item.php">
             <div class="input-group mb-3">
               <span class="input-group-text border-0" id="basic-addon1">Mục chi tiêu</span>
               <input type="text" class="form-control rounded" placeholder="Thêm mục chi tiêu........" aria-describedby="basic-addon1" name="itemName" />
@@ -138,7 +138,7 @@ $sqlItemExpense = mysqli_query($conn, "SELECT i.itemID,i.ItemName FROM item as i
                 <i class="fa fa-plus"></i>
                 Thêm mới
               </button>
-              <a type="button" class="btn btn-outline-primary waves-effect" data-dismiss="modal">Cancel</a>
+              <a type="button" class="btn btn-outline-danger waves-effect" data-dismiss="modal">Huỷ</a>
             </div>
           </form>
         </div>
