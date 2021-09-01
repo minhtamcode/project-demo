@@ -3,10 +3,6 @@ include_once  "dbconnect.php";
 
 ?>
 <div class="wrapper">
-  <!-- Preloader -->
-  <div class="preloader flex-column justify-content-center align-items-center">
-    <img class="animation__shake" src="dist/img/analytics.png" height="200" width="200">
-  </div>
   <!-- Navbar -->
   <?php
   include_once("common/header.php");
@@ -34,7 +30,7 @@ include_once  "dbconnect.php";
             ?>
 
             <div class="table-responsive">
-              <table id="mytable" class="table table-bordered table-striped text-center">
+              <table id="mytable" class="table table-bordered table-hover text-center">
                 <thead>
                   <th width="150px">Loại</th>
                   <th width="400px">Loại thu nhập</th>
@@ -53,9 +49,10 @@ include_once  "dbconnect.php";
               <td>' . $row['categoryName'] . '</td>
               <td>' . $row['collectName'] . '</td>
               <td>' . $row['ItemName'] . '</td>
-              <td>' . $row['collectPrice'] . '</td>
+              <td>' . number_format($row['collectPrice'], 0, '', ',') . '</td>
               <td style="padding: 5px">
-                <button type="button" class="btn btn-danger" onclick="deleteCollect(' . $row['collectID'] . ')"><i class="fa fa-times"></i> Xoá</button>
+                <button type="button" class="btn btn-warning" onclick="detailCollect(' . $row['collectID'] . ')"><i class="fa fa-archive"></i> Xem</button>
+                <button type="button" class="btn btn-danger" onclick="deleteCollect(' . $row['collectID'] . ')"><i class="fa fa-times-circle"></i> Xoá</button>
               </td>
               </tr>';
                     }
@@ -102,15 +99,20 @@ include_once  "dbconnect.php";
             })
           }
         </script>
+
+        <script type="text/javascript">
+          function detailCollect(collectID) {
+            $.post('insert-collect.php', {
+              'collectID': collectID,
+              alert(collectID)
+            })
+          }
+        </script>
+
       </div><!-- /.container-fluid -->
     </div>
     <!-- /.content-header -->
 
-    <!-- Main content -->
-    <div class="content">
-      <!-- /.container-fluid -->
-    </div>
-    <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
   <!-- footer -->

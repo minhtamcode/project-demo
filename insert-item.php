@@ -1,13 +1,8 @@
 <!-- insert Items -->
 <?php
 include_once "dbconnect.php";
-//$itemName = mysqli_real_escape_string($conn, $_REQUEST['itemName']);
-//$categoryItem = mysqli_real_escape_string($conn, $_REQUEST['categoryItem']);
-
 $itemName = $categoryItem = "";
-
 if (!empty($_POST)) {
-
 	if (isset($_POST['itemName'])) {
 		$itemName = $_POST['itemName'];
 	}
@@ -16,7 +11,6 @@ if (!empty($_POST)) {
 		$categoryItem = $_POST['categoryItem'];
 	}
 }
-
 // Attempt insert query execution
 $sqlInsert = "INSERT INTO item(ItemName, categoryItem) VALUES ('$itemName ','$categoryItem')";
 if (mysqli_query($conn, $sqlInsert)) {

@@ -3,13 +3,7 @@ include_once  "dbconnect.php";
 $sqlItem = mysqli_query($conn, "SELECT itemID,itemName from item where categoryItem like 'Chi tiêu';");
 ?>
 <div class="wrapper">
-
-  <!-- Preloader -->
-  <div class="preloader flex-column justify-content-center align-items-center">
-    <img class="animation__shake" src="dist/img/expense.png" height="200" width="200">
-  </div>
-
-  <!-- Navbar -->
+ <!-- Navbar -->
   <?php
   include_once("common/header.php");
   ?>
@@ -29,12 +23,12 @@ $sqlItem = mysqli_query($conn, "SELECT itemID,itemName from item where categoryI
       <h3 style="text-align: center; padding: 20px; font-weight:bold;">THÊM MỚI CHI TIÊU</h3>
       <form method="POST" action="insert-expense.php">
         <div class="input-group mb-3">
-          <span class="input-group-text border-0" id="basic-addon1">Loại chi tiêu</span>
+          <span class="input-group-text border-0">Loại chi tiêu</span>
           <input type="text" class="form-control rounded" placeholder="Thêm loại chi tiêu........" aria-describedby="basic-addon1" name="nameExpense" />
         </div>
 
         <div class="input-group mb-3">
-          <span class="input-group-text border-0" id="basic-addon3">Mục chi tiêu</span>
+          <span class="input-group-text border-0">Mục chi tiêu</span>
           <select class="selectpicker form-control" name="itemExpense">
             <option value="" aria-readonly="true">Chọn...</option>
             <?php
@@ -50,13 +44,13 @@ $sqlItem = mysqli_query($conn, "SELECT itemID,itemName from item where categoryI
 
         <div class="input-group mb-3">
           <span class="input-group-text border-0">Số tiền</span>
-          <input type="text" class="form-control rounded" aria-label="Amount" placeholder="Nhập số tiền chi tiêu........" name="priceExpense" />
+          <input type="text" class="form-control rounded"placeholder="Nhập số tiền chi tiêu........" name="priceExpense" />
           <span class="input-group-text border-0">VNĐ</span>
         </div>
 
         <div class="input-group">
           <span class="input-group-text border-0">Ghi chú</span>
-          <textarea class="form-control rounded" aria-label="With textarea" placeholder="Ghi chú chi tiêu........" name="commentExpense"></textarea>
+          <textarea class="form-control rounded"placeholder="Ghi chú chi tiêu........" name="commentExpense"></textarea>
         </div>
 
         <div class="row">

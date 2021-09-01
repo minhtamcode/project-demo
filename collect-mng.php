@@ -4,11 +4,6 @@ $sqlItem = mysqli_query($conn, "SELECT itemID,itemName from item where categoryI
 // $sqlCategoty = mysqli_query($conn, "SELECT categoryID from categories;");
 ?>
 <div class="wrapper">
-
-  <!-- Preloader -->
-  <div class="preloader flex-column justify-content-center align-items-center">
-    <img class="animation__shake" src="dist/img/self-collect.png" height="200" width="200">
-  </div>
   <!-- Navbar -->
   <?php
   include_once("common/header.php");
@@ -29,6 +24,7 @@ $sqlItem = mysqli_query($conn, "SELECT itemID,itemName from item where categoryI
       <form method="POST" action="insert-collect.php">
         <div class="input-group mb-3">
           <span class="input-group-text border-0" id="basic-addon1">Loại thu nhập</span>
+          <input style="display: none;" name="collectID"/>
           <input type="text" class="form-control rounded" placeholder="Thêm loại thu nhập........" aria-describedby="basic-addon1" name="nameCollect" />
         </div>
         <div class="input-group mb-3">
@@ -47,7 +43,7 @@ $sqlItem = mysqli_query($conn, "SELECT itemID,itemName from item where categoryI
         </div>
         <div class="input-group mb-3">
           <span class="input-group-text border-0">Số tiền</span>
-          <input type="text" class="form-control rounded" placeholder="Nhập số tiền thu nhập........" name="priceCollect" />
+          <input type="text" class="form-control rounded" placeholder="Nhập số tiền thu nhập........" name="priceCollect" data-type="currency"/>
           <span class="input-group-text border-0">VNĐ</span>
         </div>
         <div class="input-group">

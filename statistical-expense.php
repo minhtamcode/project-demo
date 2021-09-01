@@ -3,10 +3,6 @@ include_once  "dbconnect.php";
 
 ?>
 <div class="wrapper">
-  <!-- Preloader -->
-  <div class="preloader flex-column justify-content-center align-items-center">
-    <img class="animation__shake" src="dist/img/analytics.png" height="200" width="200">
-  </div>
   <!-- Navbar -->
   <?php
   include_once("common/header.php");
@@ -34,7 +30,7 @@ include_once  "dbconnect.php";
             ?>
 
             <div class="table-responsive">
-              <table id="mytable" class="table table-bordered table-striped text-center">
+              <table id="mytable" class="table table-bordered table-hover text-center">
                 <thead>
                   <th width="150px">Loại</th>
                   <th width="400px">Loại chi tiêu</th>
@@ -53,7 +49,7 @@ include_once  "dbconnect.php";
               <td>' . $row['categoryName'] . '</td>
               <td>' . $row['expenseName'] . '</td>
               <td>' . $row['ItemName'] . '</td>
-              <td>' . $row['expensePrice'] . '</td>
+              <td>' . number_format($row['expensePrice'], 0, '', ',') . '</td>
               <td>
                 <button type="button" class="btn btn-danger" onclick="deleteExpense(' . $row['expenseID'] . ')"><i class="fa fa-times"></i> Xoá</button>
               </td>

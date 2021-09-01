@@ -4,13 +4,7 @@ $sqlItemExpense = mysqli_query($conn, "SELECT i.itemID,i.ItemName FROM item as i
 ?>
 
 <div class="wrapper">
-
-  <!-- Preloader -->
-  <div class="preloader flex-column justify-content-center align-items-center">
-    <img class="animation__shake" src="dist/img/product-management.png" alt="AdminLTELogo" height="200" width="200">
-  </div>
-
-  <!-- Navbar -->
+ <!-- Navbar -->
   <?php
   include_once("common/header.php");
   ?>

@@ -30,7 +30,7 @@ if (!empty($_POST)) {
 
   $sqlInsert = "INSERT INTO Expense(ExpenseName, comment, ExpensePrice, itemID, categoryID) VALUES ('$nameExpense','$commentExpense','$priceExpense','$itemExpense','$categoryID')";
   if (mysqli_query($conn, $sqlInsert)) {
-    header('Location: index.php');
+    header('Location: statistical-expense.php');
   } else {
     echo "ERROR: Could not able to execute $sqlInsert. " . mysqli_error($conn);
   }

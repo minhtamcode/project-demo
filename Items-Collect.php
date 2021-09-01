@@ -3,12 +3,6 @@ include_once "dbconnect.php";
 $sqlItemCollect = mysqli_query($conn, "SELECT i.itemID,i.ItemName FROM item as i WHERE i.categoryItem like 'Thu nhập';");
 ?>
 <div class="wrapper">
-
-  <!-- Preloader -->
-  <div class="preloader flex-column justify-content-center align-items-center">
-    <img class="animation__shake" src="dist/img/product-management.png" alt="AdminLTELogo" height="200" width="200">
-  </div>
-
   <!-- Navbar -->
   <?php
   include_once("common/header.php");
