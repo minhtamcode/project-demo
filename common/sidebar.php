@@ -1,4 +1,4 @@
-<aside class="main-sidebar sidebar-dark-white elevation-4">
+<aside class="main-sidebar sidebar-dark-primary elevation-4">
   <!-- Brand Logo -->
   <a href="index.php" class="brand-link">
     <img src="dist/img/q.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
@@ -43,28 +43,44 @@
           </a>
           <ul class="nav nav-treeview">
             <li class="nav-item">
-              <a href="collect-mng.php" class="nav-link">
+              <a href="#" class="nav-link active">
                 <i class="far fa-circle nav-icon"></i>
                 <p>Quản lý thu nhập</p>
               </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="collect-mng.php" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Thêm thu nhập</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="statistical-collect.php" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Thống kê thu nhập</p>
+                  </a>
+                </li>
+              </ul>
             </li>
             <li class="nav-item">
-              <a href="expense-mng.php" class="nav-link">
+              <a href="expense-mng.php" class="nav-link active">
                 <i class="far fa-circle nav-icon"></i>
                 <p>Quản lý chi tiêu</p>
               </a>
-            </li>
-            <li class="nav-item" style="display: none;">
-              <a href="debt-mng.php" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>Quản lý nợ</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="statistical.php" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>Thông kê - Báo cáo</p>
-              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="expense-mng.php" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Thêm chi tiêu</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="statistical-expense.php" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Thống kê chi tiêu</p>
+                  </a>
+                </li>
+              </ul>
             </li>
           </ul>
         </li>
