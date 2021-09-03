@@ -40,18 +40,19 @@ include_once  "dbconnect.php";
                     <a type="button" class="btn btn-primary" href="collect-mng.php"><i class="far fa-edit"></i>Thêm</a>
                   </th>
                 </thead>
+
                 <tbody>
                   <?php
                   if ($sqlCollect->num_rows > 0) {
                     while ($row = $sqlCollect->fetch_assoc()) {
                       echo '<tr>
-              <td style="display:none">' . $row['collectID'] . '</td>
+              <td style="display:none;">' . $row['collectID'] . '</td>
               <td>' . $row['categoryName'] . '</td>
               <td>' . $row['collectName'] . '</td>
               <td>' . $row['ItemName'] . '</td>
               <td>' . number_format($row['collectPrice'], 0, '', ',') . '</td>
               <td style="padding: 5px">
-                <button type="button" class="btn btn-warning" onclick="detailCollect(' . $row['collectID'] . ')"><i class="fa fa-archive"></i> Xem</button>
+                <a class="btn btn-warning" data-toggle="modal" data-target="#modalPush" onclick="getDetailCollect(' . $row['collectID'] . ')" data-id="' . $row["collectID"] . '"><i class="fa fa-archive"></i> Xem</a>
                 <button type="button" class="btn btn-danger" onclick="deleteCollect(' . $row['collectID'] . ')"><i class="fa fa-times-circle"></i> Xoá</button>
               </td>
               </tr>';
@@ -63,6 +64,30 @@ include_once  "dbconnect.php";
             </div>
           </div>
         </div>
+
+        <script>
+          function getDetailCollect(collectID) {
+            $('#modalPush').on("show.bs.modal", function(e) {
+              collectID = $(e.relatedTarget).attr('data-id');
+              $(this).find(".collectID").text(collectID);
+              $.ajax({
+                type: "POST",
+                url: 'getdetail-collect.php',
+                data: {
+                  collectID: collectID,
+                },
+                success: function(reponsive) {
+                  var collect = reponsive.split(";");
+                  $("#nameCollect").val(collect[0]);
+                  $("#itemCollect").val(collect[1]);
+                  $("#priceCollect").val(collect[2]);
+                  $("#commentCollect").val(collect[3]);
+                  
+                }
+              });
+            });
+          };
+        </script>
 
         <nav aria-label="Page navigation example">
           <ul class="pagination justify-content-center">
@@ -99,22 +124,52 @@ include_once  "dbconnect.php";
             })
           }
         </script>
-
-        <script type="text/javascript">
-          function detailCollect(collectID) {
-            $.post('insert-collect.php', {
-              'collectID': collectID,
-              alert(collectID)
-            })
-          }
-        </script>
-
       </div><!-- /.container-fluid -->
     </div>
     <!-- /.content-header -->
 
+
+    <!--Modal: modalPush-->
+    <div class="modal fade" id="modalPush" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-notify modal-info" role="document">
+        <!--Content-->
+        <div class="modal-content text-center">
+          <h3 style="text-align: center; padding: 20px; font-weight:bold;">THÊM MỚI THU NHẬP</h3>
+          <form method="POST" action="">
+            <div class="input-group mb-3">
+              <p style="display: none;">ID : <span class="collectID"></span></p>
+            </div>
+            <div class="input-group mb-3">
+              <span class="input-group-text border-0" id="basic-addon1">Loại thu nhập</span>
+              <input type="text" class="form-control rounded" name="nameCollect" id="nameCollect" readonly/>
+            </div>
+            <div class="input-group mb-3">
+              <span class="input-group-text border-0" id="basic-addon3">Mục thu nhập</span>
+              <input class="form-control rounded" name="itemCollect" id="itemCollect" readonly/>
+            </div>
+            <div class="input-group mb-3">
+              <span class="input-group-text border-0">Số tiền</span>
+              <input type="text" class="form-control rounded" name="priceCollect" data-type="currency" id="priceCollect" readonly/>
+              <span class="input-group-text border-0">VNĐ</span>
+            </div>
+            <div class="input-group">
+              <span class="input-group-text border-0">Ghi chú</span>
+              <textarea class="form-control rounded" name="commentCollect" id="commentCollect" readonly></textarea>
+            </div>
+            <div class="row">
+              <div class="col-sm-8"></div>
+              <div class="col-sm-4">
+                <button type="submit" class="btn btn-primary"><i class="far fa-edit"></i>Lưu</button>
+                <a type="button" class="btn btn-outline-danger waves-effect" data-dismiss="modal">Huỷ</a>
+              </div>
+            </div>
+          </form>
+        </div>
+        <!--/.Content-->
+      </div>
+    </div>
+    <!--Modal: modalPush-->
   </div>
-  <!-- /.content-wrapper -->
   <!-- footer -->
   <?php
   include_once("common/footer.php");
