@@ -18,16 +18,12 @@ if (!empty($_POST)) {
     $priceExpense = $_POST['priceExpense'];
   }
 
-  if (isset($_POST['categoryID'])) {
-    $categoryID = $_POST['categoryID'];
-  }
-
   if (isset($_POST['commentExpense'])) {
     $commentExpense = $_POST['commentExpense'];
   }
 
   if (isset($_POST['timeExpense'])) {
-    $commentExpense = $_POST['timeExpense'];
+    $timeExpense = $_POST['timeExpense'];
   }
 
   $categoryExpense = str_replace('\'', '\\\'', $categoryExpense);
@@ -36,7 +32,7 @@ if (!empty($_POST)) {
   $commentExpense  = str_replace('\'', '\\\'', $commentExpense);
   $categoryID       = str_replace('\'', '\\\'', $categoryID);
 
-  $sqlInsert = "INSERT INTO Expense(ExpenseName, comment, ExpensePrice, itemID, categoryID, time) VALUES ('$nameExpense','$commentExpense','$priceExpense','$itemExpense','$categoryID')";
+  $sqlInsert = "INSERT INTO expense(expenseName, comment, itemID, expensePrice, categoryID, time) VALUES ('$nameExpense','$commentExpense','$itemExpense','$priceExpense','$categoryID','$timeExpense')";
   if (mysqli_query($conn, $sqlInsert)) {
     header('Location: statistical-expense.php');
   } else {

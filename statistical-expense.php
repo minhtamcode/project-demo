@@ -26,15 +26,14 @@ include_once  "dbconnect.php";
         <div class="row">
           <div class="col-md-12">
             <?php
-            $sqlExpense = mysqli_query($conn, "SELECT e.expenseID,ca.categoryName,e.expenseName,i.ItemName,e.comment,e.expensePrice,e.time FROM expense as e INNER JOIN item as i ON e.itemID = i.ItemID INNER JOIN categories as ca ON ca.categoryID = e.categoryID;");
+            $sqlExpense = mysqli_query($conn, "SELECT e.expenseID,e.expenseName,i.ItemName,e.comment,e.expensePrice,e.time FROM expense as e INNER JOIN item as i ON e.itemID = i.ItemID ;");
             ?>
 
             <div class="table-responsive">
               <table id="mytable" class="table table-bordered table-hover text-center">
                 <thead>
                   <th width="200px">Ngày chi tiêu</th>
-                  <th width="150px">Loại</th>
-                  <th>Mục tiêu dùng</th>
+                  <th>Mục chi tiêu</th>
                   <th>Số tiền(VNĐ)</th>
                   <th width="200px" style="padding: 5px">
                     <a type="button" class="btn btn-primary" href="expense-mng.php"><i class="far fa-edit"></i>Thêm</a>
@@ -47,9 +46,8 @@ include_once  "dbconnect.php";
                       echo '<tr>
               <td style="display:none">' . $row['expenseID'] . '</td>
               <td>' . $row['time'] . '</td>
-              <td>' . $row['categoryName'] . '</td>
               <td>' . $row['ItemName'] . '</td>
-              <td>' . number_format($row['expensePrice'], 0, '', ',') . '</td>
+              <td>' . $row['expensePrice'] . '</td>
               <td style="padding: 5px">
                 <a class="btn btn-warning" data-toggle="modal" data-target="#modalPush" onclick="getDetailExpense(' . $row['expenseID'] . ')" data-id="' . $row["expenseID"] . '"><i class="fa fa-archive"></i> Xem</a>
                 <button type="button" class="btn btn-danger" onclick="deleteExpense(' . $row['expenseID'] . ')"><i class="fa fa-times"></i> Xoá</button>

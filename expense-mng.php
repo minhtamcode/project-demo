@@ -50,7 +50,7 @@ $sqlItem = mysqli_query($conn, "SELECT itemID,itemName from item where categoryI
 
         <div class="input-group mb-3">
           <span class="input-group-text border-0">Ngày thêm chi tiêu</span>
-          <input type="text" class="form-control rounded"placeholder="Nhập ngày........" name="priceExpense" value="<?php $time=time(); echo date("d/m/Y", $time);?>"/>
+          <input type="text" class="form-control rounded"placeholder="Nhập ngày........" name="timeExpense" value="<?php $time=time(); echo date("d/m/Y", $time);?>"/>
         </div>
 
         <div class="input-group">

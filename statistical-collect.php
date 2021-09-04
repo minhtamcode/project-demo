@@ -26,14 +26,13 @@ include_once  "dbconnect.php";
         <div class="row">
           <div class="col-md-12">
             <?php
-            $sqlCollect = mysqli_query($conn, "SELECT c.collectID,ca.categoryName,c.collectName,i.ItemName,c.comment,c.collectPrice,c.time FROM collect as c INNER JOIN item as i ON c.itemID = i.ItemID INNER JOIN categories as ca ON ca.categoryID = c.categoryID;");
+            $sqlCollect = mysqli_query($conn, "SELECT c.collectID,c.collectName,i.ItemName,c.comment,c.collectPrice,c.time FROM collect as c INNER JOIN item as i ON c.itemID = i.ItemID;");
             ?>
 
             <div class="table-responsive">
               <table id="mytable" class="table table-bordered table-hover text-center">
                 <thead>
                   <th width="200px">Ngày thu nhập</th>
-                  <th width="150px">Loại</th>
                   <th>Mục thu nhập</th>
                   <th>Số tiền(VNĐ)</th>
                   <th width="200px" style="padding: 5px">
@@ -48,7 +47,6 @@ include_once  "dbconnect.php";
                       echo '<tr>
               <td style="display:none;">' . $row['collectID'] . '</td>
               <td>' . $row['time'] . '</td>
-              <td>' . $row['categoryName'] . '</td>
               <td>' . $row['ItemName'] . '</td>
               <td>' . number_format($row['collectPrice'], 0, '', ',') . '</td>
               <td style="padding: 5px">
