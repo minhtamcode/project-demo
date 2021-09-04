@@ -1,7 +1,7 @@
 <?php
 include_once  "dbconnect.php";
 // define variables and set to empty values
-$categoryCollect = $itemCollect = $priceCollect = $commentCollect = $collectID = "";
+$categoryCollect = $itemCollect = $priceCollect = $commentCollect = $collectID = $timeCollect = "";
 $categoryID = 1;
 
 if (!empty($_POST)) {
@@ -21,13 +21,21 @@ if (!empty($_POST)) {
     $categoryID = $_POST['categoryID'];
   }
 
+  if (isset($_POST['commentCollect'])) {
+    $commentCollect = $_POST['commentCollect'];
+  }
+
+  if (isset($_POST['timeCollect'])) {
+    $timeCollect = $_POST['timeCollect'];
+  }
+
   $categoryCollect = str_replace('\'', '\\\'', $categoryCollect);
   $itemCollect = str_replace('\'', '\\\'', $itemCollect);
   $priceCollect      = str_replace('\'', '\\\'', $priceCollect);
   $commentCollect  = str_replace('\'', '\\\'', $commentCollect);
   $categoryID       = str_replace('\'', '\\\'', $categoryID);
 
-  $sqlInsert = "INSERT INTO collect(collectName, comment, collectPrice, itemID, categoryID) VALUES ('$nameCollect','$commentCollect','$priceCollect','$itemCollect','$categoryID')";
+  $sqlInsert = "INSERT INTO collect(collectName, comment, collectPrice, itemID, categoryID, time) VALUES ('$nameCollect','$commentCollect','$priceCollect','$itemCollect','$categoryID','$timeCollect')";
   if (mysqli_query($conn, $sqlInsert)) {
     header('Location: statistical-collect.php');
   } else {

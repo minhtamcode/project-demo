@@ -50,7 +50,7 @@ $sqlItemExpense = mysqli_query($conn, "SELECT i.itemID,i.ItemName FROM item as i
               <td style="display:none;"><input type="checkbox" class="checkthis" name="checkthis" value="' . $row['itemID'] . '"></td>
               <td name="item-collect-id" style="padding-left: 50px" value="' . $row['itemID'] . '">' . $row['itemID'] . '</td>
               <td name="item-collect-name">' . $row['ItemName'] . '</td>
-              <td>
+              <td style="padding: 5px">
                 <button type="button" class="btn btn-danger" onclick="deleteItem(' . $row['itemID'] . ')"><i class="fa fa-times"></i> Xoá</button>
               </td>
               </tr>';

@@ -18,29 +18,28 @@ $sqlItemCollect = mysqli_query($conn, "SELECT i.itemID,i.ItemName FROM item as i
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
-    <div>
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <h4 style="text-align: center; font-weight: bold; padding: 10px">Danh mục thu nhập</h4>
-            <div class="table-responsive" style="padding: 5px">
-              <?php
-              $sqlItemCollect = mysqli_query($conn, "SELECT i.itemID,i.ItemName FROM item as i WHERE i.categoryItem like 'Thu nhập';");
-              ?>
-              <table id="mytable" class="table table-bordred table-striped" >
-                <thead>
-                  <th style="display:none;" width="50px"><input type="checkbox" id="checkall" name="check" /></th>
-                  <th>Mã loại thu nhập</th>
-                  <th>Tên loại thu nhập</th>
-                  <th width="110px" style="padding: 5px">
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalPoll"><i class="far fa-edit"></i>Thêm</button>
-                  </th>
-                </thead>
-                <tbody>
-                  <?php
-                  if ($sqlItemCollect->num_rows > 0) {
-                    while ($row = $sqlItemCollect->fetch_assoc()) {
-                      echo '<tr">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h4 style="text-align: center; font-weight: bold; padding: 10px">Danh mục thu nhập</h4>
+          <div class="table-responsive" style="padding: 5px">
+            <?php
+            $sqlItemCollect = mysqli_query($conn, "SELECT i.itemID,i.ItemName FROM item as i WHERE i.categoryItem like 'Thu nhập';");
+            ?>
+            <table id="mytable" class="table table-bordred table-striped">
+              <thead>
+                <th style="display:none;" width="50px"><input type="checkbox" id="checkall" name="check" /></th>
+                <th>Mã loại thu nhập</th>
+                <th>Tên loại thu nhập</th>
+                <th width="110px" style="padding: 5px">
+                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalPoll"><i class="far fa-edit"></i>Thêm</button>
+                </th>
+              </thead>
+              <tbody>
+                <?php
+                if ($sqlItemCollect->num_rows > 0) {
+                  while ($row = $sqlItemCollect->fetch_assoc()) {
+                    echo '<tr">
               <td style="display:none;"><input type="checkbox" class="checkthis" name="checkthis" value="' . $row['itemID'] . '" ></td>
               <td name="item-collect-id" style="padding-left: 50px" value="' . $row['itemID'] . '">' . $row['itemID'] . '</td>
               <td name="item-collect-name" >' . $row['ItemName'] . '</td>
@@ -48,38 +47,37 @@ $sqlItemCollect = mysqli_query($conn, "SELECT i.itemID,i.ItemName FROM item as i
                 <button type="button" class="btn btn-danger" onclick="deleteItem(' . $row['itemID'] . ')"><i class="fa fa-times"></i> Xoá</button>
               </td>
               </tr>';
-                    }
                   }
-                  ?>
-                </tbody>
-              </table>
-            </div>
-
-            <nav aria-label="Page navigation example">
-              <ul class="pagination justify-content-center">
-                <li class="page-item">
-                  <a class="page-link" href="#" aria-label="Previous">
-                    <span aria-hidden="true">&laquo;</span>
-                    <span class="sr-only">Previous</span>
-                  </a>
-                </li>
-                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                <li class="page-item">
-                  <a class="page-link" href="#" aria-label="Next">
-                    <span aria-hidden="true">&raquo;</span>
-                    <span class="sr-only">Next</span>
-                  </a>
-                </li>
-              </ul>
-            </nav>
-
+                }
+                ?>
+              </tbody>
+            </table>
           </div>
+
+          <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-center">
+              <li class="page-item">
+                <a class="page-link" href="#" aria-label="Previous">
+                  <span aria-hidden="true">&laquo;</span>
+                  <span class="sr-only">Previous</span>
+                </a>
+              </li>
+              <li class="page-item"><a class="page-link" href="#">1</a></li>
+              <li class="page-item"><a class="page-link" href="#">2</a></li>
+              <li class="page-item"><a class="page-link" href="#">3</a></li>
+              <li class="page-item">
+                <a class="page-link" href="#" aria-label="Next">
+                  <span aria-hidden="true">&raquo;</span>
+                  <span class="sr-only">Next</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+
         </div>
       </div>
-      <!-- /.content -->
     </div>
+    <!-- /.content -->
     <!-- /.content-wrapper -->
   </div>
   <?php

@@ -46,10 +46,15 @@ $sqlItem = mysqli_query($conn, "SELECT itemID,itemName from item where categoryI
           <input type="text" class="form-control rounded" placeholder="Nhập số tiền thu nhập........" name="priceCollect" data-type="currency"/>
           <span class="input-group-text border-0">VNĐ</span>
         </div>
+        <div class="input-group mb-3">
+          <span class="input-group-text border-0">Ngày thêm thu nhập</span>
+          <input type="text" class="form-control rounded" placeholder="Nhập ngày........" name="timeCollect" value="<?php $time=time(); echo date("d/m/Y", $time); ?>"/>
+        </div>
         <div class="input-group">
           <span class="input-group-text border-0">Ghi chú</span>
           <textarea class="form-control rounded" aria-label="With textarea" placeholder="Ghi chú thu nhập........" name="commentCollect"></textarea>
         </div>
+        
         <div class="row">
           <div class="col-sm-8"></div>
           <div class="col-sm-4">
