@@ -140,7 +140,7 @@ include_once  "dbconnect.php";
             </div>
             <div class="input-group mb-3">
               <span class="input-group-text border-0" id="basic-addon1">Loại thu nhập</span>
-              <input type="text" class="form-control rounded" name="nameCollect" id="nameCollect" readonly/>
+              <input type="text" class="form-control rounded" name="nameCollect" id="nameCollect"  readonly/>
             </div>
             <div class="input-group mb-3">
               <span class="input-group-text border-0" id="basic-addon3">Mục thu nhập</span>
@@ -158,8 +158,7 @@ include_once  "dbconnect.php";
             <div class="row">
               <div class="col-sm-8"></div>
               <div class="col-sm-4">
-                <button type="submit" class="btn btn-primary"><i class="far fa-edit"></i>Lưu</button>
-                <a type="button" class="btn btn-outline-danger waves-effect" data-dismiss="modal">Huỷ</a>
+                <a type="button" class="btn btn-outline-danger waves-effect" data-dismiss="modal">Thoát</a>
               </div>
             </div>
           </form>

@@ -29,6 +29,11 @@ if (!empty($_POST)) {
     $timeCollect = $_POST['timeCollect'];
   }
 
+  if (isset($_POST['collectID'])) {
+    $collectID = $_POST['collectID'];
+  }
+
+  $nameCollect = str_replace('\'', '\\\'', $nameCollect);
   $categoryCollect = str_replace('\'', '\\\'', $categoryCollect);
   $itemCollect = str_replace('\'', '\\\'', $itemCollect);
   $priceCollect      = str_replace('\'', '\\\'', $priceCollect);
@@ -40,6 +45,6 @@ if (!empty($_POST)) {
     header('Location: statistical-collect.php');
   } else {
     echo "ERROR: Could not able to execute $sqlInsert. " . mysqli_error($conn);
+    die();
   }
-  die();
 }
