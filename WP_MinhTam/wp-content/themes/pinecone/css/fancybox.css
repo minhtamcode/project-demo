@@ -1,0 +1,263 @@
+﻿.fancybox-wrap {
+	outline: 0;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 8020;
+}
+
+.fancybox-skin {
+	position: relative;
+}
+
+.fancybox-opened {
+	z-index: 8030;
+}
+
+.fancybox-outer,
+.fancybox-inner {
+	position: relative;
+}
+
+.fancybox-inner {
+	overflow: hidden;
+}
+
+.fancybox-inner p {
+	display:none;
+}
+
+.fancybox-inner .padding-top {
+	padding-top:45px;
+}
+
+.fancybox-error {
+	font-size: 11px;
+	letter-spacing: 4px;
+	text-transform: uppercase;
+}
+
+#fancybox-loading {
+	z-index: 8060;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	margin-top: -20px;
+	margin-left: -20px;
+}
+
+#fancybox-loading div {
+	width: 40px;
+	height: 40px;
+	background-color: rgba(255, 255, 255, .9);
+	line-height: 40px;
+	text-align: center;
+}
+
+#fancybox-loading div:before {
+	font-family: FontAwesome;
+	content: "\f110";
+	-webkit-animation: spinner 2s infinite linear;
+	animation: spinner 2s infinite linear;
+}
+
+@-webkit-keyframes spinner {
+	0% {
+		-webkit-transform: rotate(0deg);
+		transform: rotate(0deg);
+	}
+	100% {
+		-webkit-transform: rotate(359deg);
+		transform: rotate(359deg);
+	}
+}
+
+@keyframes spinner {
+	0% {
+		-webkit-transform: rotate(0deg);
+		transform: rotate(0deg);
+	}
+	100% {
+		-webkit-transform: rotate(359deg);
+		transform: rotate(359deg);
+	}
+}
+
+.fancybox-nav {
+	z-index: 8040;
+	cursor: pointer;
+	position: absolute;
+	top: 0;
+	width: 40%;
+	height: 100%;
+	color: #454e53;
+}
+
+.fancybox-nav span {
+	opacity: 0;
+	position: absolute;
+	top: 50%;
+	width: 60px;
+	height: 60px;
+	margin-top: -30px;
+	background-color: rgba(255, 255, 255, 0.9);
+	border:1px solid rgba(0,0,0,0.3);
+	line-height: 60px;
+	font-size:26px;
+	text-align: center;
+	-webkit-transition-duration: .2s;
+	transition-duration: .2s;
+}
+
+.fancybox-next  {
+	right: 0;
+}
+
+.fancybox-next span {
+	right: -30px;
+	-webkit-transform: translateX(10px);
+	-ms-transform: translateX(10px);
+	transform: translateX(10px);
+}
+
+.fancybox-next span:before {
+	font-family: FontAwesome;
+	content: "\f105";
+}
+
+.fancybox-next:hover span {
+	opacity: 1;
+	-webkit-transform: translateX(0px);
+	-ms-transform: translateX(0px);
+	transform: translateX(0px);
+}
+
+.fancybox-prev  {
+	left: 0;
+}
+
+.fancybox-prev span {
+	left: -30px;
+	-webkit-transform: translateX(-10px);
+	-ms-transform: translateX(-10px);
+	transform: translateX(-10px);
+}
+
+.fancybox-prev span:before {
+	font-family: FontAwesome;
+	content: "\f104";
+}
+
+.fancybox-prev:hover span {
+	opacity: 1;
+	-webkit-transform: translateX(0px);
+	-ms-transform: translateX(0px);
+	transform: translateX(0px);
+}
+
+.fancybox-tmp {
+	position: absolute;
+	top: -99999px;
+	left: -99999px;
+	visibility: hidden;
+	max-width: 99999px;
+	max-height: 99999px;
+	overflow: visible !important;
+}
+
+.fancybox-lock {
+	overflow: hidden !important;
+	width: auto;
+}
+
+.fancybox-lock body {
+	overflow: hidden !important;
+}
+
+.fancybox-lock-test {
+    overflow-y: hidden !important;
+}
+
+.fancybox-overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	overflow: hidden;
+	display: none;
+	z-index: 8010;
+	background-color: rgba(0, 0, 0, 0.9);
+}
+
+.fancybox-overlay-fixed {
+	position: fixed;
+	bottom: 0;
+	right: 0;
+}
+
+.fancybox-lock .fancybox-overlay {
+	overflow: auto;
+	overflow-y: scroll;
+}
+
+.fancybox-title {
+	position:absolute;
+	bottom: 15px;
+	left: 15px;
+	right: 15px;
+	padding: 20px 0;
+	font-size: 24px;
+	line-height: 36px;
+	color:rgba(255,255,255,0.96);
+	text-align: center;
+	background: rgba(0, 0, 0, 0.3);
+	z-index:99999;
+}
+
+.fancybox-title p {
+	font-size: 18px;
+	margin: 0;
+}
+
+.fancybox-title a {
+	color:rgba(255,255,255,0.9);
+}
+
+.fancybox-title i {
+	font-size:14px;
+}
+
+.fancybox-close {
+	position:fixed;
+	display:block;
+	top:0;
+	right:10%;
+	width:40px;
+	height:40px;
+	background:rgba(255,255,255,0.99);
+	opacity:0.7;
+	z-index:999;
+}
+
+.fancybox-close:hover {
+	opacity:0.99;
+}
+
+.fancybox-close:after {
+	font-family: FontAwesome;
+	font-size:14px;
+	line-height:40px;
+	content: "\f00d";
+	color:rgba(0,0,0,0.99);
+	position:absolute;
+	width:40px;
+	height:40px;
+	text-align:center;
+}
+
+.popup_holder {
+
+}
+
+.fancybox-wrap a#group {
+	cursor:default;
+}
