@@ -1,0 +1,116 @@
+/*
+ * Theme Name: MinhTam Theme
+ * Description:
+ * Theme URI: 
+ * Version: 1.0
+ * Author: MinhTam
+ * Author URI: 
+ * Tags: 
+ * Textdomain: minhtam
+ */
+
+
+ /*—:[GLOBAL CSS]:—*/
+html {
+    box-sizing: border-box;
+  }
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+  body {
+      font-size: 100%;
+      font-family: Helvetica Neue, Arial, sans-serif;
+      font-color: #333333;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+  }
+  img {
+          max-width: 100%;
+          height: auto;
+  }
+  a {
+      color: #F6591C;
+      text-decoration: none;
+  }
+      a:hover, a:visited, a:active {
+          color: #FF3F00;
+          text-decoration: underline;
+      }
+  input,input[type="submit"],button {
+      border: 1px solid #C8C8C8 !important;
+      padding: 5px 10px;
+  }
+  h1 {
+      font-size: 2.2em;
+  }
+  h2 {
+      font-size: 2em;
+  }
+  h3 {
+      font-size: 1.8em;
+  }
+  h4 {
+      font-size: 1.55em;
+  }
+  h5 {
+      font-size: 1.3em;
+  }
+  table, table tr, table td {
+      border: 1px solid #e7e7e7;
+          padding: 8px;
+  }
+
+
+  /*—:[WEBSITE COLUMNS]:—*/
+#container {
+	width: 1024px;
+	margin: 0 auto;
+	background :#ffffff;
+	border: 1px solid #D1D1D1;
+	padding: 10px 25px;
+}
+.content {
+	overflow: hidden;
+}
+#main-content {
+	width: 620px;
+	float: left;
+	margin-right: 10px;
+}
+#sidebar {
+	width: 320px;
+	float: right;
+	margin-left: 20px;
+	padding-left: 20px;
+}
+
+/*—:[LOGO]—*/
+.logo {
+	margin-bottom: 30px;
+	line-height: 2;
+}
+.logo .site-name {}
+.logo .site-name h1 {
+    margin: 0;
+    font-size: 0;
+}
+.logo .site-name a {
+    color: rgb(0, 100, 212);
+    font-size: 32px;
+    font-weight: bold;
+}
+.logo .site-description {
+	margin-top: -1em;
+	color: rgb(111, 111, 111);
+	font-family: Time New Roman,serif;
+	font-size: 1.04em;
+	font-style: italic;
+}
+
+.logo .site-name a {
+    display: block;
+    width: 220px; /*chiều rộng của logo*/
+    height: 90px; /*chiều cao của logo*/
+    background: url(../minhtamthemes/rec.png) left top no-repeat;
+    text-indent: -969696px;
+}

@@ -1,5 +1,0 @@
-<?php
-/**
- * Quote template part
- */
-?>

@@ -1,5 +1,0 @@
-<?php
-/**
- * Link template part
- */
-?>
